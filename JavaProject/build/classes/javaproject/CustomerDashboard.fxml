@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="CustomerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="881.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.CustomerDashboardController">
+   <left>
+      <VBox prefHeight="810.0" prefWidth="151.0" spacing="20.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="12.0" top="40.0" />
+         </BorderPane.margin>
+         <children>
+            <Button mnemonicParsing="false" onAction="#BrowseWorkButton" prefHeight="87.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Browse work form the company" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#ContactWithEmpButton" prefHeight="87.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Contact with a Employee" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="345.0" mnemonicParsing="false" onAction="#ReceiveProjectEmpButton" prefHeight="71.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Receive Project from Employee" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#HIreFreelancerButton" prefHeight="71.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Hire a Freelancer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="345.0" mnemonicParsing="false" onAction="#ReceiveFreelancerProjectButton" prefHeight="71.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Receive project from Freelancer" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="254.0" mnemonicParsing="false" onAction="#ContactCustomerButton" prefHeight="71.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Contact Customer Care" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="527.0" mnemonicParsing="false" onAction="#ComplainSuggestionButton" prefHeight="71.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Complain/Suggestion Box" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ClearViewOfCustomerButton" prefHeight="53.0" prefWidth="151.0" style="-fx-background-color: Black;" text="Clear View" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
+      </VBox>
+   </left>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#CustomerLogOutBttonClick" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: #bdee0f;" text="Log Out" textFill="#ff0303" BorderPane.alignment="BOTTOM_RIGHT">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

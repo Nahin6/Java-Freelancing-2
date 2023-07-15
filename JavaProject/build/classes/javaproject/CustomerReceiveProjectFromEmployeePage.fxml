@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="824.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.CustomerReceiveProjectFromEmployeePageController">
+   <children>
+      <Label layoutX="96.0" layoutY="64.0" prefHeight="160.0" prefWidth="878.0" text="Hello welcome, you can view your project what Our Employee has completed . You can check it from here if there are any problem let the employee or customer care know about it .Our employee will fix it quickly" textFill="#800101" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="ProjcetDisplayTxtArea" editable="false" layoutX="240.0" layoutY="265.0" prefHeight="309.0" prefWidth="667.0" promptText="Received Projcets will be Displayed here" />
+      <Button layoutX="494.0" layoutY="613.0" mnemonicParsing="false" onAction="#ViewReceivedProjectButton" style="-fx-background-color: black;" text="View Project" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.CusCareViewFreelancerQueryPageController">
+   <children>
+      <TextArea fx:id="FreelancerProblems" editable="false" layoutX="168.0" layoutY="178.0" prefHeight="237.0" prefWidth="628.0" promptText="Freelancer Problems" />
+      <Text fill="#d70943" layoutX="138.0" layoutY="119.0" lineSpacing="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Solve Freelancer Problems as soon as possible you can" wrappingWidth="686.755859375">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="207.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Freelacner ID">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="91.0" layoutY="612.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Describe about the solution to the Freelancer" wrappingWidth="249.802734375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="FreelancerID" layoutX="350.0" layoutY="499.0" prefHeight="31.0" prefWidth="361.0" promptText="Freelacner ID" />
+      <TextArea fx:id="DescribeSolutionToFreelancer" layoutX="350.0" layoutY="574.0" prefHeight="126.0" prefWidth="361.0" promptText="Describe" />
+      <Button layoutX="491.0" layoutY="731.0" mnemonicParsing="false" onAction="#SendReplyToCustomereButton" style="-fx-background-color: black;" text="Send" textFill="#e1c0e4">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Text fx:id="Conrfirm" layoutX="425.0" layoutY="819.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

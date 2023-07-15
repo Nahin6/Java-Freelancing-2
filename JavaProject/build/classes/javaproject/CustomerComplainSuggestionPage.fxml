@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="867.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.CustomerComplainSuggestionPageController">
+   <children>
+      <Label layoutX="272.0" layoutY="51.0" text="Hello Please Write your Complain or suggestion to us  " textFill="#341ebf" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="367.0" layoutY="101.0" text="We will try our best to help you" textFill="#341ebf" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="CustomerCoplainBox" layoutX="261.0" layoutY="416.0" prefHeight="230.0" prefWidth="566.0" promptText="Complain/Suggestion Box">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="500.0" layoutY="680.0" mnemonicParsing="false" onAction="#SendCompainSuggestionButton" style="-fx-background-color: black;" text="Send " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Text layoutX="272.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your username">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="CustomerUserName" layoutX="440.0" layoutY="256.0" prefHeight="31.0" prefWidth="275.0" promptText="Username">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="RatingComboBox" layoutX="440.0" layoutY="340.0" prefHeight="31.0" prefWidth="275.0" promptText="Ratings" />
+      <Text layoutX="281.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can give rating to us" wrappingWidth="132.818359375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="ConfirmLabel" layoutX="449.0" layoutY="755.0" prefHeight="70.0" prefWidth="321.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

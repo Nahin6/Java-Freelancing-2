@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="808.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.StudentChatWithTrainerPageController">
+   <children>
+      <Text fill="#d70943" layoutX="121.0" layoutY="104.0" lineSpacing="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact with your Trainer if you face any problem in any courses" wrappingWidth="673.755859375">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="206.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Name">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="208.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="163.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write in details" wrappingWidth="152.802734375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Name" layoutX="339.0" layoutY="166.0" prefHeight="31.0" prefWidth="275.0" promptText="Name" />
+      <TextField fx:id="StudID" layoutX="339.0" layoutY="219.0" prefHeight="31.0" prefWidth="275.0" promptText="ID" />
+      <TextArea fx:id="DetailMessage" layoutX="339.0" layoutY="322.0" prefHeight="105.0" prefWidth="275.0" promptText="Message" />
+      <Button layoutX="430.0" layoutY="444.0" mnemonicParsing="false" onAction="#SendMessageToTrainerButton" text="Send" textFill="#643a68">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Label fx:id="Confirm" layoutX="351.0" layoutY="499.0" prefHeight="42.0" prefWidth="275.0" />
+      <Text layoutX="163.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Problems Topic">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TopicOfProblem" layoutX="339.0" layoutY="272.0" prefHeight="31.0" prefWidth="275.0" promptText="Topic" />
+      <TextArea fx:id="Replies" editable="false" layoutX="208.0" layoutY="623.0" prefHeight="129.0" prefWidth="603.0" promptText="Replies" />
+      <Text fill="#d70943" layoutX="409.0" layoutY="591.0" lineSpacing="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reply from Trainer" wrappingWidth="201.755859375">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

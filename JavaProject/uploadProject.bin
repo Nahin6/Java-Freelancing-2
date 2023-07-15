@@ -1,0 +1,1202 @@
+[ const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for data in data %} '{{data.0}}', {% endfor %}],
+                datasets: [
+                    {
+                        label: "SBE",
+                        data: [{% for data in data %} '{{data.1}}', {% endfor %}],
+                        backgroundColor: '#415c5c'
+                    },
+                    {
+                        label: "SELS",
+                            data: [{% for data in data %} '{{data.2}}', {% endfor %}],
+                        backgroundColor: '#367a63'
+                        },
+                    {
+                        label: "SETS",
+                            data: [{% for data in data %} '{{data.3}}', {% endfor %}],
+                        backgroundColor: '#5b944c'
+                        },
+                    {
+                        label: "SLASS",
+                        data: [{% for data in data %} '{{data.4}}', {% endfor %}],
+                        backgroundColor: '#a2a51f',
+                       // borderWidth: -5
+                        
+                        },
+                    {
+                        label: "SPPH",
+                        data: [{% for data in data %} '{{data.5}}', {% endfor %}],
+                        backgroundColor: '#ffa600',
+                      //  borderWidth: -15
+                    },
+                    {
+                        label: "Total",
+
+                        data: [{% for data in data %} '{{data.6}}', {% endfor %}],
+                        type: 'line',
+                        yAxisID: "right-y-axis",
+                        borderColor: '#003f5c',
+                        backgroundColor: '#003f5c',
+                        // this dataset is drawn on top
+                        order: 1
+                    }
+                ]
+            },
+JÚ
+package mainpkg;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+
+public class FXMLlMainSceneController implements Initializable {
+    
+    @FXML
+    private Label label;
+    @FXML
+    private TextField EmailNameTextField;
+    @FXML
+    private TextField PaddwordtextField;
+    @FXML
+    private Label label1;
+    @FXML
+    private ComboBox ComboBox;
+    @FXML
+    private Button LoginTxT;
+    @FXML
+    private Button ForgetpassTxt;
+
+    private Label deptLabel;
+    
+    
+    
+    
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+       ComboBox.getItems().add("CEO");
+       ComboBox.getItems().addAll("Employee","Customer");
+       ComboBox.setValue("Select Dept");        
+       
+        
+      
+    }    
+
+    @FXML
+    private void UpdateComboBox(ActionEvent event) {
+        
+            this.deptLabel.setText("Selected Dept is: "+ ComboBox.getValue().toString());
+    }
+
+    @FXML
+    private void ClickToLogin(ActionEvent event) throws IOException{
+        
+        try {
+            
+            
+            Parent scene2Parent = FXMLLoader.load(getClass().getResource("AppearMainScene.fxml"));
+            Scene s = new Scene(scene2Parent);
+          
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+            window.setScene(s);
+            window.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLlMainSceneController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void ClickToForgetpassword(ActionEvent event) {
+    }
+    
+}
+
+
+===============================================================
+
+
+
+
+
+
+package mainpkg;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.collections.FXCollections;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+/**
+ *
+ * @author Acer
+ */
+public class FXMLDocumentController implements Initializable {
+    
+  static  ObservableList list = FXCollections.observableArrayList();
+    
+    String username = "Nahin";
+    String password = "1234";
+    static String name = null;
+    
+    @FXML
+    private Label label;
+    @FXML
+    private TextField UserName;
+    @FXML
+    private TextField Password;
+    @FXML
+    private Label label1;
+    @FXML
+    private ComboBox ComboBox;
+    @FXML
+    private Button LoginTxT;
+    @FXML
+    private Button ForgetpassTxt;
+    private Label  deptLabel;
+    
+ 
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    ComboBox.getItems().add("CEO");
+       ComboBox.getItems().addAll("Employee","Customer");
+       ComboBox.setValue("Select Dept");        
+    }    
+    
+    public static String TakeVariable ()
+    {
+    return name;
+    }
+  
+    @FXML
+    private void UpdateComboBox(ActionEvent event) {
+          this.deptLabel.setText("Selected Dept is: "+ ComboBox.getValue().toString());
+    }
+
+    @FXML
+    private void ClickToLogin(ActionEvent event) throws IOException {
+        
+        String n= UserName.getText();
+        String pass =Password.getText();
+        if(n.isEmpty()&& pass.isEmpty())
+        {
+            Alert alert = new Alert (AlertType.ERROR);
+            alert.setHeaderText("Fileds are Emty ");
+            alert.showAndWait();
+        }
+        else{
+            if(n.equals(UserName)&&pass.equals(password)){
+                
+                FXMLDocumentController.name= n;
+               ((Node)event.getSource()).getScene().getWindow().hide();
+                NewWindow ("AppearMainScene.fxml") ;  
+            }
+            else{
+                
+                Alert alert = new Alert (AlertType.ERROR);
+            alert.setHeaderText("Wrong User Name or Password ");
+            alert.showAndWait();
+            }
+
+    }
+    
+    }
+ @FXML
+private void NewWindow (String location)  throws IOException {
+
+//try {
+            
+            
+         /*   Parent scene2Parent = FXMLLoader.load(getClass().getResource("AppearMainScene.fxml"));
+            Scene s = new Scene(scene2Parent);
+          
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+            window.setScene(s);
+            window.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+ 
+           Parent scene2Parent = FXMLLoader.load(getClass().getResource(location));
+           Scene scene = new Scene(scene2Parent);
+           Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(scene);
+      String title = null;
+            stage.setTitle(title);
+            stage.show();
+}
+}
+
+    @FXML
+   private void ClickToForgetpassword(ActionEvent event)throws IOException {
+
+    }
+    
+}
+
+
+
+
+
+
+
+UpdateComboBox
+
+
+ComboBox
+
+// @FXML
+   // private void UpdateComboBox(ActionEvent event) {
+         // this.deptLabel.setText("Selected Dept is: "+ ComboBox.getValue().toString());
+   // }
+
+
+
+
+
+ // ComboBox.getItems().add("CEO");
+       //ComboBox.getItems().addAll("Employee","Customer");
+      // ComboBox.setValue("Select Dept");        
+    }  
+
+
+
+
+Sir code:
+==============
+
+//try {
+            
+            
+         /*   Parent scene2Parent = FXMLLoader.load(getClass().getResource("AppearMainScene.fxml"));
+            Scene s = new Scene(scene2Parent);
+          
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+            window.setScene(s);
+            window.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16/12/2021
+=============
+CEOController
+
+package mainpkg;
+
+import java.io.Serializable;
+import javafx.beans.property.SimpleStringProperty;
+
+
+public class Employee  {
+ 
+    protected SimpleStringProperty NewUser,  orderGot, timeSubmitted, lateSubmitted;
+
+  public Employee(String NewUser, String orderGot, String timeSubmitted, String lateSubmitted) {
+        this.NewUser = new SimpleStringProperty(NewUser);
+        this.orderGot = new SimpleStringProperty(orderGot);
+         this.timeSubmitted = new SimpleStringProperty(timeSubmitted);
+            this.lateSubmitted = new SimpleStringProperty(lateSubmitted);
+    }
+
+    public void getNewUser(String NewUser) {
+       this.NewUser = new SimpleStringProperty(NewUser);
+    }
+
+    public void getOrderGot(String orderGot) {
+      this.orderGot = new SimpleStringProperty(orderGot);
+    }
+
+    public void getTimeSubmitted(String timeSubmitted) {
+     this.timeSubmitted = new SimpleStringProperty(timeSubmitted);
+    }
+
+    public void getLateSubmitted(String lateSubmitted) {
+        this.lateSubmitted = new SimpleStringProperty(lateSubmitted);
+    }
+
+    public void setNewUser(SimpleStringProperty NewUser) {
+        this.NewUser = NewUser;
+    }
+
+    public void setOrderGot(SimpleStringProperty orderGot) {
+        this.orderGot = orderGot;
+    }
+
+    public void setTimeSubmitted(SimpleStringProperty timeSubmitted) {
+        this.timeSubmitted = timeSubmitted;
+    }
+
+    public void setLateSubmitted(SimpleStringProperty lateSubmitted) {
+        this.lateSubmitted = lateSubmitted;
+    }
+
+    
+
+
+   }
+
+
+NewUserColumn,NewOrderColumn,IntimeSubmittedColumn,LateSubmittedColumn;
+
+
+
+
+
+
+
+
+
+CEOSceneController 
+======================
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mainpkg;
+
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
+
+/**
+ * FXML Controller class
+ *
+ * @author Acer
+ */
+public class CEOsceneController implements Initializable {
+
+    @FXML
+    private TableView<Employee> tableView;
+    @FXML
+    private TableColumn<Employee, String> NewUserColumn;
+    @FXML
+    private TableColumn<Employee, String> NewOrderColumn;
+    @FXML
+    private TableColumn<Employee, String> IntimeSubmittedColumn;
+    @FXML
+    private TableColumn<Employee, String> LateSubmittedColumn;
+
+    /**
+     * Initializes the controller class.
+     */
+     
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+     
+        ObservableList<Employee> data= FXCollections.observableArrayList(
+       
+        new Employee("33","34","21","6"),
+        new Employee("33","34","21","6"),
+        new Employee("33","34","21","6"),
+        new Employee("33","34","21","6"),
+        new Employee("33","34","21","6"),
+        new Employee("33","34","21","6")
+  
+       ) ;
+
+        NewUserColumn.setCellValueFactory(new PropertyValueFactory<Employee,String>("NewUserColumn"));
+        NewOrderColumn.setCellValueFactory(new PropertyValueFactory<Employee,String>("NewOrderColumn"));
+        IntimeSubmittedColumn.setCellValueFactory(new PropertyValueFactory<Employee,String>("IntimeSubmittedColumn"));
+        LateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<Employee,String>("LateSubmittedColumn"));
+        //load dummy data
+        tableView.setItems(data);    
+        
+     
+  
+    }    
+
+    @FXML
+    private void CeoLogOutBttonClick(ActionEvent event) throws IOException {
+        
+                Parent scene2Parent = FXMLLoader.load(getClass().getResource("FXMLlMainScene.fxml"));
+            Scene s = new Scene(scene2Parent);
+          
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+            window.setScene(s);
+            window.show();
+    }
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               Parent scene2Parent = FXMLLoader.load(getClass().getResource("FXMLlMainScene.fxml"));
+            Scene s = new Scene(scene2Parent);
+          
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+            window.setScene(s);
+            window.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+FreeLancerSceneController
+
+
+
+
+
+ FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+         Parent root = loader.load();
+        
+        FreeLancerSceneController copyscen = loader.getController();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Store Buttton
+
+ Freelancer freelancer = new Freelancer(  
+                    Integer.parseInt(IdTxt.getText()),
+                    NameTxt.getText(),
+                    EmailTxt.getText(),
+                  Integer.parseInt(WorkGotTxt.getText())  ,
+                       Integer.parseInt(DeliveredTxt.getText()),
+                    
+                    SuccessRateTxt.getText()
+                      
+              
+                );
+        IdTxt.setText(null);    NameTxt.setText(null);  EmailTxt.setText(null);  WorkGotTxt.setText(null);
+                
+                DeliveredTxt.setText(null); SuccessRateTxt.setText(null);
+       // freelancer
+        File f = new File("f.bin");
+        ObjectOutputStream oos=null;
+        try {
+            if(f.exists())
+                oos = new AppendableObjectOutputStream(new FileOutputStream(f,true));
+            else
+               oos = new ObjectOutputStream(new FileOutputStream(f,true));
+           // ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("f.bin"));
+           
+            
+          oos.writeObject(freelancer);
+            oos.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        storeMsgFxId.setText("Information Stored Successfully" );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  public ObservableList<Freelancer> getContent() { 
+   // ObservableList<Freelancer> data = FXCollections.observableArrayList(); 
+   /// data.add(new Freelancer()); // your data 
+   // return data; 
+//}
+    /*
+    @FXML
+    private void FreeLancerWorkRateCheckButton(ActionEvent event) throws IOException {
+        
+        
+        
+        
+         // Freelancer freelancer = new Freelancer;
+           
+        File f = new File("f.bin");
+        ObjectOutputStream oos=null;
+        try {
+            if(f.exists())
+                oos = new AppendableObjectOutputStream(new FileOutputStream(f,true));
+            else
+               oos = new ObjectOutputStream(new FileOutputStream(f,true));
+           // ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("f.bin"));
+           
+            
+        //  oos.writeObject(freelancer);
+            oos.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+     //ObservableList<Freelancer> studList = FXCollections.observableArrayList();
+           try { 
+        // Load content overview. 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FreeLancerScene.fxml")); 
+       // loader.setLocation(MainApp.class.getResource("view/Content.fxml")); 
+        Pane content = (Pane) loader.load(); 
+         
+        // Set content into the center of root layout. 
+        //rootLayout.setCenter(content); 
+         
+        // Give the controller access to the main app. 
+        FreeLancerSceneController controller = loader.getController(); 
+       // controller.setItems(TableForFreelancer.getSelectionModel().getSelectedItems());
+    
+   // controller.setItems(TableForFreelancer.getItems()); 
+    } catch (IOException e) { 
+        e.printStackTrace(); 
+    } 
+*/
+        
+     
+        
+       // copyscen.showInformation( TableForFreelancer.setItems((ObservableList<Freelancer>) studList));
+  //copyscen.showInformation();
+    
+        
+        
+
+        
+                //ObjectInputStream ois=null;
+      // ObservableList<Freelancer> studList = FXCollections.observableArrayList();
+        // try {
+        //    Freelancer fo;
+           // ois = new ObjectInputStream(new FileInputStream("f.bin"));
+           // while(true){
+              //  fo = (Freelancer) ois.readObject();
+               // studList.add(fo);
+            
+            //s.display();
+            //tableView.getItems().add(s);
+            //tableView.setItems(studList);
+       // } catch (Exception ex) {            
+          //  try {
+                //TableForFreelancer.setItems(studList);
+               // if(ois!=null)
+                   // ois.close();
+          //  } 
+          //  catch (IOException e) {
+               // e.printStackTrace();
+         //  }
+           /// ex.printStackTrace();
+
+
+
+       
+
+   // }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/ Freelancer freelancer = new Freelancer;
+           
+        File f = new File("f.bin");
+        ObjectOutputStream oos=null;
+        try {
+            if(f.exists())
+                oos = new AppendableObjectOutputStream(new FileOutputStream(f,true));
+            else
+               oos = new ObjectOutputStream(new FileOutputStream(f,true));
+           // ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("f.bin"));
+           
+            
+        //  oos.writeObject(freelancer);
+            oos.close();
+        } 
+catch (Exception ex) {
+            ex.printStackTrace();
+        }
+     //ObservableList<Freelancer> studList = FXCollections.observableArrayList();
+           try { 
+        // Load content overview. 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FreeLancerScene.fxml")); 
+       // loader.setLocation(MainApp.class.getResource("view/Content.fxml")); 
+       // Pane content = (Pane) loader.load(); 
+         
+        // Set content into the center of root layout. 
+        //rootLayout.setCenter(content); 
+         
+        // Give the controller access to the main app. 
+        FreeLancerSceneController controller = loader.getController(); 
+       // controller.setItems(TableForFreelancer.getSelectionModel().getSelectedItems());
+    
+   // controller.setItems(TableForFreelancer.getItems()); 
+    } 
+catch (IOException e) { 
+        e.printStackTrace(); 
+    } 
+
+
+
+
+
+
+
+
+
+
+
+
+20-12-2021
+==============
+
+
+
+        
+       // copyscen.showInformation( TableForFreelancer.setItems((ObservableList<Freelancer>) studList));
+  //copyscen.showInformation();
+    
+        
+        
+
+        
+                //ObjectInputStream ois=null;
+      // ObservableList<Freelancer> studList = FXCollections.observableArrayList();
+        // try {
+        //    Freelancer fo;
+           // ois = new ObjectInputStream(new FileInputStream("f.bin"));
+           // while(true){
+              //  fo = (Freelancer) ois.readObject();
+               // studList.add(fo);
+            
+            //s.display();
+            //tableView.getItems().add(s);
+            //tableView.setItems(studList);
+       // } catch (Exception ex) {            
+          //  try {
+                //TableForFreelancer.setItems(studList);
+               // if(ois!=null)
+                   // ois.close();
+        // } 
+          //  catch (IOException e) {
+               // e.printStackTrace();
+         //  }
+           /// ex.printStackTrace();
+
+
+
+       
+
+   // }
+//}
+
+
+
+Send Monthly update to CEO
+
+Approve posts from Free Lancer
+
+view Customer Membership List 
+
+Guide new Customers
+
+Leave application to CEO
+
+
+
+
+
+
+
+
+
+
+    private TableView<?> tableView;
+    @FXML
+    private TableColumn<?, ?> monthColumn;
+    @FXML
+    private TableColumn<?, ?> NewVisitedColumn;
+    @FXML
+    private TableColumn<?, ?> NewCusRegColumn;
+    @FXML
+    private TableColumn<?, ?> NewFreelancerRegColumn;
+    @FXML
+    private TableColumn<?, ?> DeletedAccColumn;
+    @FXML
+    private TableColumn<?, ?> InvestColumn;
+    @FXML
+    private TableColumn<?, ?> ProfitColumn;
+    @FXML
+    private TableColumn<?, ?> orderGotColumn;
+    @FXML
+    private TableColumn<?, ?> OrderDeliverdColumn;
+
+
+
+
+ 
+    
+
+
+‡Freelancing Company :
+
+
+1. CEO :
+1.Check monthly Progress of the app
+2.See feedback from customers.
+3.Check weekly Progress of an Freelancer
+4.Store Attendance of employees
+5.Give payment to Employees 
+
+
+2.Employees :
+1.Send Monthly update to CEO
+2.Approve posts from Free Lancer
+3.Guide new Customers
+4.view Member List 
+5.Leave application to CEO
+
+3.Freelancers :
+
+1.Give a post in the app 
+2.Accept Job request from customers
+3.Submit Done Project
+4.Check Payemnt Information
+5.Upadte your Work rate
+
+4. Customers :
+1.Hire a Employee for work
+2.Take Membership 
+3.Pay the FreeLancer
+4.Leave a Complain to CEO
+5.Help desk
+
+5. BASIS-Members :
+
+1.BASIS-BRAC Bank Co-Branded Credit Card (VISA)
+2.Remittance against purchase of software through e-Delivery
+3.Rental Facility
+4.Training
+5.Software and IT Service Catalogue
+
+
+
+
+
+
+
+
+
+
+
+
+workflow
+==================
+
+
+
+
+1. CEO :
+========
+
+E1: App will first check login credential of this user .
+E2: if login successful, it will load CEO's specific home Scene, else go-back to login/forgot password page.
+E3: After login user can view his scene
+
+
+1.Check weekly Progress of the app :
+--------------------------------------
+E1: After clicking this goal CEO will get a scene where he can view weekly report of how many user used this app . 
+E2: He can view how many work the company getting weekly.
+E3: He can view  Employees doing there work in time or not. 
+if not he can leave a note to the specific employee to finish the work quicky
+
+
+2.See feedback from customers :
+----------------------------------
+E1: when user will click here he can view Email/message from customers . 
+if he wants to reply these mail he have to click to a Email
+
+
+
+
+3.Check weekly Progress of an employee :
+--------------------------------------------
+
+E1: After login CEO have to click on his desired goal 
+
+E2: It will load a new Scene where CEO hAve to enter a employee id to check his  progress.
+E3: After enterinn id CEO have to click on Show Employee Progress button.
+E4: It will load A table 
+E5 :In the table CEO can see the employees informaiton.
+
+
+4.Check Attendance of employees :
+----------------------------------
+E1 : If CEO wants to see the attendnace of employees he can check it from here
+ 
+
+
+4.Give payment to Employees   :
+----------------------------------
+E1: After selecting (Give payment to Employees) CEO can see his Employee list who work for the company. 
+E2: By clicking a Employee it will take 
+him to payment page . 
+E3: After clicking PAYMENT button it will check Employee's month completed or not . If not completed it wil show a message " Employee's Full month is not complete yet "
+E4: else if month completed it will allow CEO to send payment.
+
+
+
+
+
+2. Employees :
+==============
+App will first check login credential of this user .
+
+
+1.Update Your Profile:
+----------------------
+E1:in this page employee can have some button to update his profile
+E2:If employee click on update profile picture he can upload a new picture of his.
+E3:if he click on update your work infrormation he can update his work info after a job done.
+
+
+2.Approve posts from Free Lancer.
+---------------------------------------
+E1: After clicking this page Employee can view incoming psot approval request from the Freelancers
+E2:If employee wants to accept the approval he have click in " Acceept " button
+E3:else if he doesnt like the post or the is irrelevent of the company he can decline the job by clicking " Decline " button.
+
+
+3.Guide new Customers
+--------------------------------------
+E1:After clicking this page employee can see if any customer asked for help or not
+E2: If someone ask something employee can reply his question in this page
+
+
+4.view Member List:
+---------------------------
+
+E1: in this page Employee  can see the member list of the app .
+E2 : if he want he can generated the information in a pdf
+
+5.Leave application to CEO.
+---------------------------
+E1: Employee will have a option where he can send application to CEO
+
+
+
+
+
+3.Freelancers :
+===================
+App will first check login credential of this user .
+
+
+1.Give a post in the app :
+---------------------------
+E1:After clicking here FreeLancers will get window where he can post his skills of work.
+E2: he wll get a button to post his information.
+
+
+2.Accept Job request from customers:
+-------------------------------------
+E1: In this window Freelancer can view how many Job request he got 
+E2: If he wants to accept a request, he have to click on " Accept this Job "
+E3: else decline it
+
+3.Submit Done Project:
+---------------------------
+E1: After finishing a job he have to send it to the customer.
+E2: there will be a button to send the project.
+
+4.Check Payemnt Information:
+---------------------------
+E1: freelancer can see if he got the payment yet or not in this goal
+
+
+5.Upadte your Work rate:
+------------------------
+E1: Employee need to Click on his desired goal.
+E2: Now Freelancer need to give his id and update his  weekly work information.
+E3: After Filling all fields he need to click on Store your Information button
+E4: app will update his information.
+
+
+
+
+
+
+4. Customers :
+==============
+App will first check login credential of this user .
+
+
+
+1.Hire a Employee for work
+--------------------------
+E1:After clicking here Customers can view Employees list with their skills
+E2:If customer wants to hire a employee he have to click on  " view profile of this Employee"
+E3:Here he can see all details of the employees
+E4: After seeing details customer still wants to hire him he can click on " Hire Employee "
+E5: else if customer dont like his profile he can go back and browse another profile .
+
+
+2.Take Membership:
+-------------------
+
+E1:if its a normal user/customer he can see a page where he can membership plan monthly , Yearly
+E4: If user wants to take monthly membership he have to click monthly button else if he wants yearly membership 
+he have to click yearly button.
+E5: After choosing one plan  he can view the payment page to buy the membership plan.
+E6: After completing payment it will show message " Congratulations you have successfully become a member of our App. 
+Now you can see our member services "
+ 
+
+3.Pay the FreeLancer:
+-----------------------
+E1: Customer need to pay the freelancer before/after the job finished.
+E2: He need to click on Send Payment to complete the  payment .
+
+
+4.Leave a Complain to CEO
+-------------------------
+E1: If customer face any problem using app or having problem with employee he can send a Email or message to the CEO
+and complain about the employee in details
+E2:customer will get a " Report to CEO " option After clicking here he writte to CEO
+
+
+5.Help desk
+-----------
+E1: customer will have a help dest , if he doesnt know how to use the app or how to hire a employee.
+E2: he can view a complete guidence for using the app .
+
+
+
+
+
+5. BASIS  Members :
+=================================
+App will first check login credential of this user .
+
+
+
+
+1.BASIS-BRAC Bank Co-Branded Credit Card (VISA)
+----------------------------------------------------
+E1: After clickinng here it will load a scene where employeee can apply for this Facility
+E2: If he wants this Facility then he have to click on  Get It Now Button
+
+
+
+2.Remittance against purchase of software through e-Delivery
+--------------------------------------------------------------------
+
+E1: After clickinng here it will load a scene where employeee can apply for this Facility
+E2: If he wants this Facility then he have to click on  Get It Now Button
+
+
+
+3.Rental Facility
+-------------------
+
+E1: After clickinng here it will load a scene where employeee can apply for this Facility
+E2: If he wants this Facility then he have to click on  Get It Now Button
+
+
+
+4.Training Facility
+----------------------
+
+E1: After clickinng here it will load a scene where employeee can apply for this Facility
+E2: If he wants this Facility then he have to click on  Get It Now Button
+
+
+
+
+5.Seminars and Workshops
+-------------------------------------
+
+E1: After clickinng here it will load a scene where employeee can apply for this Facility
+E2: If he wants this Facility then he have to click on  Get It Now Button
+
+
+[ const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for data in data %} '{{data.0}}', {% endfor %}],
+                datasets: [
+                    {
+                        label: "SBE",
+                        data: [{% for data in data %} '{{data.1}}', {% endfor %}],
+                        backgroundColor: '#415c5c'
+                    },
+                    {
+                        label: "SELS",
+                            data: [{% for data in data %} '{{data.2}}', {% endfor %}],
+                        backgroundColor: '#367a63'
+                        },
+                    {
+                        label: "SETS",
+                            data: [{% for data in data %} '{{data.3}}', {% endfor %}],
+                        backgroundColor: '#5b944c'
+                        },
+                    {
+                        label: "SLASS",
+                        data: [{% for data in data %} '{{data.4}}', {% endfor %}],
+                        backgroundColor: '#a2a51f',
+                       // borderWidth: -5
+                        
+                        },
+                    {
+                        label: "SPPH",
+                        data: [{% for data in data %} '{{data.5}}', {% endfor %}],
+                        backgroundColor: '#ffa600',
+                      //  borderWidth: -15
+                    },
+                    {
+                        label: "Total",
+
+                        data: [{% for data in data %} '{{data.6}}', {% endfor %}],
+                        type: 'line',
+                        yAxisID: "right-y-axis",
+                        borderColor: '#003f5c',
+                        backgroundColor: '#003f5c',
+                        // this dataset is drawn on top
+                        order: 1
+                    }
+                ]
+            },

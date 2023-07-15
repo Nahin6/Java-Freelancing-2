@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="FreeLancerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.FreelancerDashboardController">
+   <left>
+      <VBox prefHeight="861.0" prefWidth="170.0" spacing="30.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="40.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="40.0" />
+         </padding>
+         <children>
+            <Button mnemonicParsing="false" onAction="#PostAddButton" style="-fx-background-color: Black;" text="Post your Job Advertise in the APP" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ViewJobReqButton" style="-fx-background-color: Black;" text="VIew Job request from customers" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SubmitProjectButton" prefHeight="98.0" prefWidth="170.0" style="-fx-background-color: Black;" text="Submit Completed Project" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="446.0" mnemonicParsing="false" onAction="#ContactCustomerCare" prefHeight="84.0" prefWidth="170.0" style="-fx-background-color: Black;" text="Contact Customer Care " textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ClearViewOfFreelancerButton" prefHeight="75.0" prefWidth="177.0" style="-fx-background-color: Black;" text="Clear View" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#CustomerLogOutBttonClick" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: #bdee0f;" text="Log Out" textFill="#ff0303" BorderPane.alignment="BOTTOM_RIGHT">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

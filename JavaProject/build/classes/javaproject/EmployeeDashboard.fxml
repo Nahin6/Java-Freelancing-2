@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="EmpBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="885.0" prefWidth="1064.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.EmployeeDashboardController">
+   <left>
+      <VBox prefHeight="724.0" prefWidth="154.0" spacing="20.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="22.0" top="40.0" />
+         </BorderPane.margin>
+         <children>
+            <Button lineSpacing="2.0" mnemonicParsing="false" onAction="#PostServicesButton" prefHeight="96.0" prefWidth="221.0" style="-fx-background-color: Black;" text="Post Available Services for Customer" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ViewJobReqButton" prefHeight="107.0" prefWidth="154.0" style="-fx-background-color: Black;" text="VIew Job request from customers" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" lineSpacing="2.0" mnemonicParsing="false" onAction="#ContactCustomerButton" prefHeight="96.0" prefWidth="221.0" style="-fx-background-color: Black;" text="Contact with a Customer" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="273.0" lineSpacing="2.0" mnemonicParsing="false" onAction="#SendCompleteProject" prefHeight="96.0" prefWidth="221.0" style="-fx-background-color: Black;" text="Send Complete Project to customer" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="389.0" lineSpacing="2.0" mnemonicParsing="false" onAction="#CeoAnnounmentButton" prefHeight="96.0" prefWidth="221.0" style="-fx-background-color: Black;" text="View Announcement from CEO. " textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ClearViewOfEmployeeButton" prefHeight="75.0" prefWidth="167.0" style="-fx-background-color: Black;" text="Clear View" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="40.0" />
+         </padding>
+      </VBox>
+   </left>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#EmpLogOutBttonClick" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: #bdee0f;" text="Log Out" textFill="#ff0303" BorderPane.alignment="BOTTOM_RIGHT">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

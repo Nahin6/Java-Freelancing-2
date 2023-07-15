@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="842.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaproject.ManagerSendMonthlyProgessPageController">
+   <children>
+      <Label layoutX="305.0" layoutY="77.0" text="Enter Month name" textFill="#0c30ff">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="183.0" layoutY="101.0" lineSpacing="5.0" prefHeight="104.0" prefWidth="323.0" text="    Number of  New  Customer Registered" textFill="#0c30ff">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="MonthTxtId" layoutX="533.0" layoutY="77.0" promptText="Month" />
+      <TextField fx:id="CustomerRegTxtId" layoutX="533.0" layoutY="138.0" promptText="Customer Reg Num" />
+      <Label layoutX="183.0" layoutY="162.0" lineSpacing="5.0" prefHeight="104.0" prefWidth="323.0" text="    Number of New Freelancer Registered" textFill="#0c30ff">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="FreelancerRegTxtId" layoutX="533.0" layoutY="199.0" promptText="Freelancer Reg Num" />
+      <Label layoutX="183.0" layoutY="223.0" lineSpacing="5.0" prefHeight="104.0" prefWidth="323.0" text="    This month total Investment" textFill="#0c30ff">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="InvestmentTxtId" layoutX="533.0" layoutY="260.0" promptText="Total Investment" />
+      <Label layoutX="183.0" layoutY="283.0" lineSpacing="5.0" prefHeight="104.0" prefWidth="323.0" text="                Number of order got" textFill="#0c30ff">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NumOfOrderTxtId" layoutX="533.0" layoutY="320.0" promptText="Total order" />
+      <Label layoutX="193.0" layoutY="335.0" lineSpacing="5.0" prefHeight="104.0" prefWidth="323.0" text="   Number of Order Delivered" textFill="#0c30ff">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NumOfDeliverdOrderTxtId" layoutX="533.0" layoutY="372.0" promptText="Total Delivered" />
+      <Button layoutX="425.0" layoutY="448.0" mnemonicParsing="false" onAction="#StoreMonthlyProgressButtonOnClick" prefHeight="49.0" prefWidth="216.0" style="-fx-background-color: black;" text="Store Information" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="StoreEmpInfoLvlFx" layoutX="317.0" layoutY="535.0" prefHeight="85.0" prefWidth="448.0" textFill="#9e0e0e">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
